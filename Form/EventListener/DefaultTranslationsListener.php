@@ -5,8 +5,8 @@ namespace A2lix\TranslationFormBundle\Form\EventListener;
 use Symfony\Component\Form\FormEvent,
     Symfony\Component\Form\FormEvents,
     Symfony\Component\EventDispatcher\EventSubscriberInterface,
-    A2lix\TranslationFormBundle\TranslationForm\TranslationForm;
-
+    A2lix\TranslationFormBundle\TranslationForm\TranslationForm,
+    A2lix\TranslationFormBundle\Form\Type\TranslationsFieldsType;
 /**
  *
  * @author David ALLIX
@@ -47,7 +47,7 @@ class DefaultTranslationsListener implements EventSubscriberInterface
 
         foreach ($formOptions['locales'] as $locale) {
             if (isset($childrenOptions[$locale])) {
-                $form->add($locale, 'a2lix_translationsFields', array(
+                $form->add($locale, TranslationsFieldsType::class, array(
                     'data_class' => $translationClass,
                     'fields' => $childrenOptions[$locale]
                 ));

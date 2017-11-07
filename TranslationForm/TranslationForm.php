@@ -88,9 +88,9 @@ abstract class TranslationForm implements TranslationFormInterface
             $options['pattern'] = $patternGuess->getValue();
         }
 
-        if (!isset($options['max_length']) && ($maxLengthGuess = $guesser->guessMaxLength($class, $property))) {
-            $options['max_length'] = $maxLengthGuess->getValue();
-        }
+        // if (!isset($options['max_length']) && ($maxLengthGuess = $guesser->guessMaxLength($class, $property))) {
+        //     $options['max_length'] = $maxLengthGuess->getValue();
+        // }
 
         return $options;
     }
